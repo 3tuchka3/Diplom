@@ -594,7 +594,7 @@ li {
     .dashboard__add {
         position: fixed;
         right: 40px;
-        bottom: 500px;
+        bottom: 400px;
         display: flex;
         justify-content: center;
         align-items: center;
