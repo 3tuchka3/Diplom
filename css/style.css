@@ -212,7 +212,7 @@ input[type="text"] {
     display: none;
     position: fixed;
     left: 38%;
-    top: 250px;
+    top: 50px;
 }
 .modal__cancel {
     position: absolute;
@@ -513,6 +513,13 @@ li {
         flex-direction: column;
         justify-content: start;
     }
+    .modal {
+        display: none;
+        position: fixed;
+        left: 350px;
+        top: 150px;
+        
+    }
     .modal__wrap{
         display: flex;
         justify-content: center;
@@ -594,7 +601,7 @@ li {
     .dashboard__add {
         position: fixed;
         right: 40px;
-        bottom: 400px;
+        bottom: 85px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -613,7 +620,29 @@ li {
         height: 100%;
     }
 }
+@media (max-width:900px){
+    .modal {
+        display: none;
+        position: fixed;
+        left: 30%;
+        top: 150px;
+        
+    }     
+    .delete {
+        display: none;
+        position: fixed;
+        left: 28%;
+        top: 350px;
+    }  
+}
 @media (max-width:550px){
+    .modal {
+        display: none;
+        position: fixed;
+        left: 20%;
+        top: 50px;
+        
+    }    
     .dashboard__todoList{
         margin-top: 20px;
         order: 1;
@@ -679,4 +708,5 @@ li {
         align-items: center;
         justify-content: center;
     }
+    
 }
