@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link type="image/x-icon" href="./img/favicon.ico" rel="shortcut icon">
+    <link type="Image/x-icon" href="./img/favicon.ico" rel="icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/general_settings.css">
+    <title>ToDo List</title>
+</head>
+<body>
+    <div class="header">
+        <div class="header__text">ToDo List Application</div>
+        <div class="header__button">logout</div>
+    </div>
+    <div class="dashboard">
+        <div class="dashboard__greeting">if you don't see your tasks, add them</div>
+        <div class="dashboard__content">
+            <div class="dashboard__filters">
+                <input type="text" class="dashboard__filterTitle" id="searching" placeholder="Search by title...">
+                <select id="status" class="select-css">
+                    <option>All</option>
+                    <option>Dones</option> 
+                    <option>In progress</option>
+                </select> 
+            </div>
+            <ul class="dashboard__todoList">
+            </ul>
+            <div class="dashboard__theme">
+                <h3 class="dashboard__theme-text">Application theme</h3>
+                <select id="theme" class="select-css" >
+                    <option>Dark</option>
+                    <option>Pink</option>
+                    <option>Violet</option>
+                    <option>Chrome</option>
+                </select> 
+            </div>
+            <button class="dashboard__add"><img src="./img/plus-vector-icon.png" alt=""></button>
+        </div>
+        <div class="modal">
+            <div class="modal__wrap">
+                <div class="modal__cancel"></div>
+                <h2 class="modal__text">Add new Task</h2>
+                <textarea required id="title" class="modal__title" placeholder="title..."></textarea>
+                <textarea required id="description" class="modal__description" placeholder="description..."></textarea>
+                <div id="save" class="modal__button">Save</div>
+            </div>
+        </div>
+        <div class="delete">
+            <div class="delete__wrap">
+                <h2 class="delete__text">Are you sure for delete this item?</h2>
+                <div class="delete__buttons">
+                    <button required id="delete" class="delete__button" onclick="tasks.deleteTask()">delete</button>
+                    <button required id="cancel" class="delete__button" onclick="dialog.hideModalDelete();">cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="error"></div>
+    <script src="./script/Dialog.js"></script>
+    <script src="./script/Database.js"></script>
+    <script src="./script/Tasks.js"></script>
+    <script src="./script/helper.js"></script>
+    <script src="./script/globalVariables.js"></script>
+    <script src="./script/script.js"></script>
+</body>
+</html>
