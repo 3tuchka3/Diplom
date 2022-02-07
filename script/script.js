@@ -44,7 +44,7 @@ modalButton.addEventListener('click', function() {
 });
 
 logOut.addEventListener('click', function() {
-    helper.redirect('sign-in.html');
+    helper.redirect('index.html');
 })
 cancel.addEventListener('click', () => {tasks.clearTask(); dialog.hideModal();})
 searchText.addEventListener('input', (event) => {
