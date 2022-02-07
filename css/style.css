@@ -601,7 +601,7 @@ li {
     .dashboard__add {
         position: fixed;
         right: 40px;
-        bottom: 85px;
+        bottom: 55px;
         display: flex;
         justify-content: center;
         align-items: center;
