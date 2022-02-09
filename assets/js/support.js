@@ -44,7 +44,7 @@
             let database = new Database(getUserID());
             database.onSetUserAuth(false);
             support.sendNotify('Success','You have successfully logged out', 1);
-            support.sendRedirect('./login.html',2500);
+            support.sendRedirect('./index.html',2500);
         },
         getElement: function(id){
             return document.getElementById(id);
