@@ -1,72 +1,81 @@
-<!doctype html>
-<html lang="ru">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link type="image/x-icon" href="./img/favicon.ico" rel="shortcut icon">
-    <link type="Image/x-icon" href="./img/favicon.ico" rel="icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/general_settings.css">
-    <title>ToDo List</title>
+    <title>ToDo List | Dashboard</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <meta charset="utf-8">
 </head>
+
 <body>
-    <div class="header">
-        <div class="header__text">ToDo List Application</div>
-        <div class="header__button">logout</div>
-    </div>
-    <div class="dashboard">
-        <div class="dashboard__greeting">if you don't see your tasks, add them</div>
-        <div class="dashboard__content">
-            <div class="dashboard__filters">
-                <input type="text" class="dashboard__filterTitle" id="searching" placeholder="Search by title...">
-                <select id="status" class="select-css">
-                    <option>All</option>
-                    <option>Dones</option> 
-                    <option>In progress</option>
-                </select> 
-            </div>
-            <ul class="dashboard__todoList">
-            </ul>
-            <div class="dashboard__theme">
-                <h3 class="dashboard__theme-text">Application theme</h3>
-                <select id="theme" class="select-css" >
-                    <option>Dark</option>
-                    <option>Pink</option>
-                    <option>Violet</option>
-                    <option>Chrome</option>
-                </select> 
-            </div>
-            <button class="dashboard__add"><img src="./img/plus-vector-icon.png" alt=""></button>
+    <div class="dashboard__inner">
+        <div class="higher__section">
+            <p class="title">Todo List Application</p>
+            <div class="logout" onclick="support.logout();">Logout</div>
         </div>
-        <div class="modal">
-            <div class="modal__wrap">
-                <div class="modal__cancel"></div>
-                <h2 class="modal__text">Add new Task</h2>
-                <textarea required id="title" class="modal__title" placeholder="title..."></textarea>
-                <textarea required id="description" class="modal__description" placeholder="description..."></textarea>
-                <div id="save" class="modal__button">Save</div>
-            </div>
-        </div>
-        <div class="delete">
-            <div class="delete__wrap">
-                <h2 class="delete__text">Are you sure for delete this item?</h2>
-                <div class="delete__buttons">
-                    <button required id="delete" class="delete__button" onclick="tasks.deleteTask()">delete</button>
-                    <button required id="cancel" class="delete__button" onclick="dialog.hideModalDelete();">cancel</button>
+        <div class="inner__body">
+            <p class="body__hey">Welcome, {username} here are your tasks</p>
+            <div class="body__container">
+                <div class="container__controls">
+                    <input class="controls__search" type="text" placeholder="Search.."
+                        oninput="updateSearch(this.value);">
+                    <div class="dropdown">
+                        <div class="dropdown__main list__item" id="-1" onclick="updateStatus(this.id); eventDropDown(this,0);">Status</div>
+                        <div class="dropdown__list">
+                            <div id="0" class="list__item" onclick="updateStatus(this.id); eventDropDown(this,0);">Done</div>
+                            <div id="1" class="list__item" onclick="updateStatus(this.id); eventDropDown(this,0);">Not done</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container__list">
+                </div>
+                <div class="container__controls">
+                    <div class="dropdown">
+                        <div class="dropdown__main list__item" id="0" onclick="updateTheme(this.id); eventDropDown(this,1);">Dark</div>
+                        <div class="dropdown__list">
+                            <div id="1" class="list__item" onclick="updateTheme(this.id); eventDropDown(this,1);">Red</div>
+                            <div id="2" class="list__item" onclick="updateTheme(this.id); eventDropDown(this,1);">Yellow</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="error"></div>
-    <script src="./script/Dialog.js"></script>
-    <script src="./script/Database.js"></script>
-    <script src="./script/Tasks.js"></script>
-    <script src="./script/helper.js"></script>
-    <script src="./script/globalVariables.js"></script>
-    <script src="./script/script.js"></script>
+    <div class="dashboard__add" onclick="task.showDialog(0);"><p>+</p></div>
+    <div class="dashboard__dialog__inner">
+        <div class="dashboard__dialog">
+            <p class="dashboard__dialog__title" id="dd__title">dialog title</p>
+            <div class="dashboard__dialog__close" onclick="task.destroyDialog();">+</div>
+            <div class="dashboard__dialog__content">
+                <p class="dashboard__dialog__text" id="dd__text"></p>
+                <input type="text" class="dashboard__dialog__input" placeholder="title" id="dd__input__title">
+                <textarea class="dashboard__dialog__ta" placeholder="description" id="dd__input__ta"></textarea>
+                <div class="dashboard__dialog__button__confirm" id="dd__button__confirm" onclick="task.onDialogResponse(0);">
+                    confirm
+                </div>
+                <div class="dashboard__dialog__buttons" id="dd__control__buttons">
+                    <div class="dashboard__dialog__buttons__button" id="dd__control__buttons__1"
+                        onclick="task.onDialogResponse(1);">
+                        Confirm
+                    </div>
+                    <div class="dashboard__dialog__buttons__button" id="dd__control__buttons__2"
+                        onclick="task.onDialogResponse(0);">
+                        Cancel
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="notify" style="display: none;">
+        <p class="notify__title"></p>
+        <p class="notify__message"></p>
+    </div>
 </body>
+<script src="assets/js/events.js"></script>
+<script src="assets/js/Database.js"></script>
+<script src="assets/js/support.js"></script>
+<script src="assets/js/Dialog.js"></script>
+<script src="assets/js/Tasks.js"></script>
+<script src="assets/js/globalVariables.js"></script>
+<script src="assets/js/dashboard.js"></script>
 </html>
