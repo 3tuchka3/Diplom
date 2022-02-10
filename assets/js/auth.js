@@ -8,7 +8,7 @@ const onRegistration = () => {
         let database = new Database();
         support.sendNotify('Success','You are successfully registered', 1)
         database.onInsertIntoDatebase({login: user_reg.login, password: user_reg.password, email: user_reg.email, theme: user_reg.theme, auth: user_reg.auth, tasks: user_reg.tasks});
-        support.sendRedirect('index.html',2500);
+        support.sendRedirect('login.html',2500);
     }
 }
 
