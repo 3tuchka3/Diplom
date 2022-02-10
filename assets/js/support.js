@@ -16,9 +16,9 @@
         checkAuthorization: function(){
             try{
                 let database = new Database(getUserID());
-                // if(database.onGetUserAuth() == true){
-                //     support.sendRedirect('./dashboard.html',0);
-                // }
+                if(database.onGetUserAuth() == true){
+                    support.sendRedirect('./dashboard.html',0);
+                }
             }
             catch {}
         },
