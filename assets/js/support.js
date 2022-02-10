@@ -56,11 +56,6 @@
                     title: 'Your first task',
                     desc: 'The sample description..'
                 },
-                {
-                    status: 0,
-                    title: 'General Soft',
-                    desc: 'Course finished'
-                }
             ];
             return tasks;
         }

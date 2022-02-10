@@ -43,7 +43,7 @@ html,body{
 }
 
 .form__body{
-    max-width: 500px;
+    max-width: 400px;
     margin: 0 auto;
     background: white;
     height: 200px;
@@ -52,7 +52,7 @@ html,body{
     justify-content: space-around;
     align-items: center;
     border-radius: 15px;
-    margin-top: 50px;
+    margin-top: 250px;
     border: 2px solid #b2b3b3;
 }
 
@@ -63,6 +63,7 @@ html,body{
 }
 
 .body__input{
+    max-width: 70%;
     padding: 6px 60px;
     text-align: center;
     border: 2px solid #e1e2e2;
@@ -161,15 +162,15 @@ html,body{
 .logout{
     position: absolute;
     right: 30px;
-    color: black;
+    color: #949ba7;
     width: 80px;
     height: 25px;
-    background: white;
+    background: #e6e6e6;
+    border: solid 2px #949ba7;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 20px;
-    border: 1px solid black;
     cursor: pointer;
     font-family: 'Urbanist', sans-serif;
     font-size: 15px;
@@ -508,16 +509,42 @@ html,body{
     margin-top: 15px;
     cursor: pointer;
 }
-
-
-@keyframes notify{
-    from{
-        opacity: 100%;
+.dashboard__dialog p {
+    font-family: 'Urbanist', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: #949ba7;
+}
+@media (max-width:750px){
+    .body__container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 15px;
     }
-    30%{
-        opacity: 100%;
+    .container__controls{
+        margin-top: 0px;
+        margin-bottom: 0px;
+        order: -1;
+        width: 130px;
+        padding: 0 25px;
     }
-    to{
-        opacity: 0%;
+    .dropdown{
+        margin-bottom: 10px;
+    }
+  }
+@media (max-width:430px) {
+    .list__column{
+        width: 350px;
+    }
+    .higher__section{
+        display: flex;
+        background: var(--theme-color);
+        width: 100%;
+        justify-content: left;
+        align-items: center;
+    }
+    .title{
+        margin-left: 30px;
     }
 }

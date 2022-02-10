@@ -6,7 +6,7 @@ const updateTheme = (themeid) => {
         document.documentElement.style.setProperty('--theme-color', '#ff808f');
     }
     else if (themeid == 2) {
-        document.documentElement.style.setProperty('--theme-color', 'yellow');
+        document.documentElement.style.setProperty('--theme-color', 'orange');
     }
     database.onSetUserTheme(themeid);
     document.getElementsByClassName("dropdown__main").id = themeid;
