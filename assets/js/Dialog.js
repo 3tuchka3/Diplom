@@ -48,7 +48,6 @@
                 this.dialogTitle.innerHTML = this.dialogTempData.title;
                 this.dialogTitle.style.display = 'block';
                 this.dialogTempData.desc == '' ? this.dialogText.innerHTML = 'No text promited here..' : this.dialogText.innerHTML = this.dialogTempData.desc;
-                this.dialogText.style.display = 'block';
                 this.dialogCButtons.style.display = 'flex';
                 if (this.dialogTempData.status == 1) {
                     this.dialogCB[0].innerHTML = 'Done';
